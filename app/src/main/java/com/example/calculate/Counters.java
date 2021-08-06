@@ -1,4 +1,4 @@
-package com.example.lessonfirst;
+package com.example.calculate;
 
 import java.io.Serializable;
 
