@@ -20,4 +20,5 @@
     <string name="textView" translatable="false">0</string>
     <string name="black_theme">Black</string>
     <string name="white_theme">White</string>
+    <string name="settings">settings</string>
 </resources>

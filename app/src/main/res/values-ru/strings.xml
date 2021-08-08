@@ -3,4 +3,5 @@
     <string name="app_name">Калькулятор</string>
     <string name="white_theme">Белая</string>
     <string name="black_theme">Черная</string>
+    <string name="settings">Настройки</string>
 </resources>

@@ -11,11 +11,14 @@
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:gravity="center"
+        android:layout_margin="10dp"
+        android:gravity="right"
+        android:background="@drawable/input_text"
         android:text="@string/textView"
         android:textSize="@dimen/textViewSize" />
+
 
 
     <LinearLayout

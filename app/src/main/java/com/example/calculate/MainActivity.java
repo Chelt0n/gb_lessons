@@ -12,7 +12,7 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener  {
     static String TAG = "Counters";
     final static int whiteTheme = 1;
     final static int blackTheme = 2;
