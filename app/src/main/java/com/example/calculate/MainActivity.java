@@ -8,16 +8,11 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.RadioButton;
 import android.widget.TextView;
 
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener  {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     static String TAG = "Counters";
-    final static int whiteTheme = 1;
-    final static int blackTheme = 2;
-    static final String KEY_SP = "sp";
-    static final String KEY_CURRENT_THEME = "current_theme";
 
     TextView textView;
     Button zero;
@@ -31,8 +26,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button eight;
     Button nine;
     Counters counters;
-    RadioButton whiteButton;
-    RadioButton blackButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,28 +33,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setTheme(getRealStyle(getCurrentTheme()));
         setContentView(R.layout.activity_main);
         initView();
-        theme();
         initListener();
         counters = new Counters();
 
     }
 
-    private void theme() {
-        switch (getCurrentTheme()) {
-            case 1:
-                whiteButton.setChecked(true);
-                break;
-            case 2:
-                blackButton.setChecked(true);
-                break;
-        }
-    }
 
     private int getRealStyle(int currentTheme) {
         switch (currentTheme) {
-            case whiteTheme:
+            case Settings.whiteTheme:
                 return R.style.whiteTheme;
-            case blackTheme:
+            case Settings.blackTheme:
                 return R.style.blackTheme;
 
             default:
@@ -69,25 +51,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    private void setCurrentTheme(int currentTheme) {
-        SharedPreferences sharedPreferences = getSharedPreferences(KEY_SP, MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putInt(KEY_CURRENT_THEME, currentTheme);
-        editor.apply();
-    }
 
     private int getCurrentTheme() {
-        SharedPreferences sharedPreferences = getSharedPreferences(KEY_SP, MODE_PRIVATE);
-        return (sharedPreferences.getInt(KEY_CURRENT_THEME, -1));
+        SharedPreferences sharedPreferences = getSharedPreferences(Settings.KEY_SP, MODE_PRIVATE);
+        return (sharedPreferences.getInt(Settings.KEY_CURRENT_THEME, -1));
     }
 
-
-    @Override
-    public void onSaveInstanceState(@NonNull Bundle instanceState) {
-        super.onSaveInstanceState(instanceState);
-        instanceState.putSerializable(TAG, counters);
-
-    }
 
     @Override
     protected void onRestoreInstanceState(@NonNull Bundle instanceState) {
@@ -112,20 +81,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         seven.setOnClickListener(this);
         eight.setOnClickListener(this);
         nine.setOnClickListener(this);
-        whiteButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setCurrentTheme(whiteTheme);
-                recreate();
-            }
-        });
-        blackButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setCurrentTheme(blackTheme);
-                recreate();
-            }
-        });
     }
 
     private void initView() {
@@ -140,8 +95,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         seven = findViewById(R.id.seven);
         eight = findViewById(R.id.eight);
         nine = findViewById(R.id.nine);
-        whiteButton = findViewById(R.id.whiteTheme);
-        blackButton = findViewById(R.id.blackTheme);
     }
 
 
