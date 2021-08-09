@@ -1,5 +1,6 @@
 package com.example.calculate;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -9,7 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 
-public class Settings extends AppCompatActivity {
+public class Settings extends AppCompatActivity  {
     final static int whiteTheme = 1;
     final static int blackTheme = 2;
     Button back;
@@ -57,6 +58,7 @@ public class Settings extends AppCompatActivity {
         });
 
 
+
     }
 
     private void setCurrentTheme(int currentTheme) {
@@ -70,7 +72,6 @@ public class Settings extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences(KEY_SP, MODE_PRIVATE);
         return (sharedPreferences.getInt(KEY_CURRENT_THEME, -1));
     }
-
     private int getRealStyle(int currentTheme) {
         switch (currentTheme) {
             case whiteTheme:

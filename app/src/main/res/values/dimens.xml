@@ -2,5 +2,5 @@
 <resources>
     <dimen name="button_text_size">35sp</dimen>
     <dimen name="textViewSize">40sp</dimen>
-    <dimen name="buttonWightSize">250dp</dimen>
+    <dimen name="buttonWightSize">200dp</dimen>
 </resources>
