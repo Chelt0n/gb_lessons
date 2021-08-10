@@ -21,7 +21,7 @@ public class MainMenu extends AppCompatActivity {
         setContentView(R.layout.activity_menu);
         calculate = findViewById(R.id.calculate);
         settings = findViewById(R.id.settings);
-        Intent goToCalculate = new Intent(this, MainActivity.class);
+        Intent goToCalculate = new Intent("runCalculate");
         Intent goToSettings = new Intent(this, Settings.class);
         calculate.setOnClickListener(new View.OnClickListener() {
             @Override

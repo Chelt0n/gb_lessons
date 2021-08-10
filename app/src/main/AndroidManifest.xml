@@ -10,7 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LessonFirst">
         <activity android:name=".Settings"></activity>
-        <activity android:name=".MainActivity" />
+        <activity android:name=".MainActivity" >
+            <intent-filter>
+                <action android:name="runCalculate"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
         <activity android:name=".MainMenu">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
